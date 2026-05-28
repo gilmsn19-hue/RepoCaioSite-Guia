@@ -1,0 +1,8 @@
+{
+  "name": "Pare de Pedir Desculpas",
+  "description": "Landing page para o ebook do psicólogo Caio Biedacha sobre autenticidade e autoconhecimento.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
