@@ -147,7 +147,7 @@ class StableVTurbPlayer extends React.Component {
         
         <div className="relative aspect-video rounded-none overflow-hidden border border-wood-light/30 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] bg-black">
           {React.createElement("vturb-smartplayer", {
-            id: "vid-6a18527a23128d09f93f3a3d",
+            id: "vid-6a47365f57a22db6a053fd77",
             style: {
               display: "block",
               margin: "0 auto",
@@ -258,7 +258,7 @@ export default function App() {
       if (activeEl && (
         activeEl.tagName === 'IFRAME' || 
         activeEl.tagName.includes('VTURB') || 
-        activeEl.id?.includes('6a18527a23128d09f93f3a3d')
+        activeEl.id?.includes('6a47365f57a22db6a053fd77')
       )) {
         setVideoStarted(true);
         setIsPlaying(true);
@@ -324,7 +324,7 @@ export default function App() {
 
   useEffect(() => {
     const s = document.createElement("script");
-    s.src = "https://scripts.converteai.net/c5af71b1-77d0-40c1-bc2f-360898e9f8cf/players/6a18527a23128d09f93f3a3d/v4/player.js";
+    s.src = "https://scripts.converteai.net/c5af71b1-77d0-40c1-bc2f-360898e9f8cf/players/6a47365f57a22db6a053fd77/v4/player.js";
     s.async = true;
     document.body.appendChild(s);
 

@@ -1,6 +1,55 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Error Prevention and Sandbox Compatibility Patches -->
+    <script>
+      (function() {
+        // Safe fetch property definition to avoid TypeError: "Cannot set property fetch of #<Window> which has only a getter"
+        try {
+          let currentFetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return currentFetch; },
+            set: function(val) { currentFetch = val; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          // Ignore if object definition is restricted
+        }
+
+        // Safe JSON.stringify wrapper to resolve "Converting circular structure to JSON" in third-party trackers or platform logs
+        try {
+          const originalStringify = JSON.stringify;
+          JSON.stringify = function(value, replacer, space) {
+            try {
+              return originalStringify(value, replacer, space);
+            } catch (err) {
+              if (err instanceof TypeError && (err.message.includes('circular') || err.message.includes('Circular'))) {
+                const seen = new WeakSet();
+                return originalStringify(value, function(key, val) {
+                  if (val && typeof val === 'object') {
+                    if (seen.has(val)) {
+                      return '[Circular]';
+                    }
+                    seen.add(val);
+                    if (val instanceof HTMLElement || (val.constructor && val.constructor.name === 'FiberNode') || key.startsWith('__react')) {
+                      return '[DOMElement/ReactInternal]';
+                    }
+                  }
+                  if (typeof replacer === 'function') {
+                    return replacer(key, val);
+                  }
+                  return val;
+                }, space);
+              }
+              throw err;
+            }
+          };
+        } catch (e) {
+          // Ignore if stringify override is blocked
+        }
+      })();
+    </script>
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -18,9 +67,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-    <link rel="preload" href="https://scripts.converteai.net/c5af71b1-77d0-40c1-bc2f-360898e9f8cf/players/6a18527a23128d09f93f3a3d/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/c5af71b1-77d0-40c1-bc2f-360898e9f8cf/players/6a47365f57a22db6a053fd77/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/c5af71b1-77d0-40c1-bc2f-360898e9f8cf/6a1852039aec186d51a94b73/main.m3u8" as="fetch">
+    <link rel="preload" href="https://cdn.converteai.net/c5af71b1-77d0-40c1-bc2f-360898e9f8cf/6a47352bf6de1f860170d468/main.m3u8" as="fetch">
     <link rel="dns-prefetch" href="https://cdn.converteai.net">
     <link rel="dns-prefetch" href="https://scripts.converteai.net">
     <link rel="dns-prefetch" href="https://images.converteai.net">
