@@ -169,7 +169,7 @@ function FacebookComments() {
       id: 7,
       username: "@camilarocha",
       time: "há 6 horas",
-      text: "Eu sou a pessoa que fala “desculpa incomodar” antes de qualquer coisa. Até quando a pessoa me deve uma resposta, eu peço desculpa por cobrar. Ver isso explicado na VSL deu um aperto, porque eu percebi que faço isso pra não parecer difícil, chata ou intensa demais.",
+      text: "Eu sou a pessoa que fala “desculpa incomodar” antes de qualquer coisa. Até quando a pessoa me deve uma resposta, eu peço desculpa por cobrar. Ver isso explicado no vídeo deu um aperto, porque eu percebi que faço isso pra não parecer difícil, chata ou intensa demais.",
       likes: 58,
       avatarUrl: "https://i.ibb.co/hRQQ4dVc/Whats-App-Image-2026-07-04-at-23-16-11.jpg",
       replies: [
