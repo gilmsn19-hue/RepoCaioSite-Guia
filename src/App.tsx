@@ -465,7 +465,7 @@ export default function App() {
                 className="mb-10 max-w-xl"
               >
                 <p className="text-sm md:text-xl text-white font-sans leading-relaxed">
-                  Entenda por que você sente culpa ao se posicionar e vive tentando ser aceito o tempo todo.
+                  Descubra por que isso não é um defeito seu, e como superar de uma vez por todas.
                 </p>
               </motion.div>
 
